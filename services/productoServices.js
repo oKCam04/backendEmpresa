@@ -33,6 +33,14 @@ class ProductosServices{
             console.log("Error en el servicio de eliminar producto: ", e);
         }
     }
+    static async getById(id){
+        try{
+            const producto=await Productos.findOne({where:{id}})
+            return producto
+        }catch(e){
+            console.log("Error en el servicio de obtener producto por id: ", e);
+        }
+    }
 }
 
 module.exports=ProductosServices;

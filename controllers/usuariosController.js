@@ -12,7 +12,7 @@ class UsuariosController {
                 const token=jwt.sign({id:rpCorreo.id,correo:rpCorreo.correo},"secreto",{expiresIn:'1h'})
                 res.json({mensaje:"Login exitoso",token,rpCorreo})
             }else{
-                console.log("contrasena incorrecta")
+                res.json({mensaje:"contrasena incorrecta"})
             }
         }catch(e){
             res.json({mensaje:"Error en el controller"})
@@ -37,6 +37,7 @@ class UsuariosController {
             res.json({mensaje:"Error en el controller"})
         }
     }
+    
 
 }
 module.exports=UsuariosController;

@@ -38,5 +38,15 @@ class ProductosController{
             res.status(500).json({error:"Error al eliminar el producto"})
         }
     }
+
+    static async getById(req,res){
+        try{
+            const {id}=req.params
+            const producto=await ProductosServices.getById(id)
+            res.json(producto)
+        }catch(e){
+            res.status(500).json({error:"Error al obtener el producto por id"})
+        }
+    }
 }
 module.exports=ProductosController;
